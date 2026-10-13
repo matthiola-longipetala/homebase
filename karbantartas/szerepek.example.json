@@ -1,0 +1,9 @@
+{
+  "_comment": "Only with two Claudes. Copy to szerepek.json. Key = the first 8 characters of a session id. Sessions not listed get the default role. 'journal' and 'note' are used by both SessionStart hooks; 'telegram_data' is that Claude's own telegram-mcp data folder (for the daemon heartbeat).",
+  "0a1b2c3d": {
+    "role": "night",
+    "journal": "naplo/{date}_night.md",
+    "telegram_data": "<secrets or repo>/telegram-mcp/data_night",
+    "note": "YOU ARE THE NIGHT CLAUDE: only look after your OWN watchers and your own bot; the day Claude's processes are not yours to stop."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_comment": "Copy to your secrets folder (outside the repo) and point IMAGE_MCP_CONFIG at it. Env fallbacks: CF_ACCOUNT_ID, CF_API_TOKEN, GEMINI_API_KEY.",
+  "provider": "cloudflare",
+  "default_out_dir": "<folder for generated images>",
+  "cloudflare": {
+    "account_id": "PLACEHOLDER",
+    "api_token": "PLACEHOLDER"
+  },
+  "gemini_api_key": "PLACEHOLDER (only used when provider is \"gemini\"; image output needs billing)"
+}

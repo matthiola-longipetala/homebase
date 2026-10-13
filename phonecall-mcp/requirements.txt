@@ -1,0 +1,12 @@
+# ⚠️ mcp<2 is a REQUIRED pin: this server uses the v1 API
+# (`from mcp.server.fastmcp import FastMCP`). In mcp 2.x FastMCP was RENAMED to
+# MCPServer, so a bare `mcp>=1.0.0` now installs 2.x and the server dies at IMPORT.
+# If all your MCP servers run from ONE global Python, a single upgrade takes down
+# all of them — pin it, or use a virtual environment per server.
+mcp>=1.0,<2
+twilio>=9.0.0
+aiohttp>=3.9.0
+elevenlabs>=1.0.0
+python-dotenv>=1.0.0
+websockets>=12.0
+tzdata>=2024.1

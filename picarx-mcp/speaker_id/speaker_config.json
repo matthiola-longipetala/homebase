@@ -1,0 +1,12 @@
+{
+  "rec_device": "plughw:CARD=Array,DEV=0",
+  "sample_rate": 16000,
+  "enroll_seconds": 10,
+  "enroll_samples": 3,
+  "thresholds": {
+    "name": 0.82,
+    "maybe": 0.78
+  },
+  "profiles_path": "profiles.json",
+  "_comment": "Cosine thresholds: score >= name -> [<name>], score >= maybe -> [valoszinuleg <name>] ('probably'), below -> [ismeretlen hang] ('unknown voice'). The code defaults are 0.75/0.5; these values were tuned live against unknown male and female voices (TV/video audio played through a speaker). Tuning rule: keep 'maybe' above the highest score any stranger reached, and 'name' safely below the enrolled speaker's lowest live score, leaving a gap on both sides. If an enrolled speaker drops below 'maybe' in a noisy or distant situation, do NOT lower the thresholds: add an enrolment sample recorded in that situation (enroll.py <name> --wav ..., weighted average). Score log: /tmp/speaker_scores.jsonl, WAV archive: /tmp/spk_ring/. rec_device is addressed BY NAME (plughw:CARD=Array) because the ALSA card number can change after a reboot."
+}

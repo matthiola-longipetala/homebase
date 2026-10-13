@@ -1,0 +1,38 @@
+# picarx-mcp — Python dependencies ON THE ROBOT (Raspberry Pi OS).
+#
+# ⚠️ mcp<2 is a REQUIRED PIN: this server uses the v1 API (`from mcp.server.fastmcp import FastMCP`).
+# In mcp 2.x FastMCP was renamed and the server dies at import.
+#
+# picarx and robot-hat come from SunFounder's own repositories, installed in phase 0 (SETUP_FAZIS_0.md):
+# do NOT let pip fetch packages with these names from PyPI. They are listed here only for reference.
+#   picarx>=2.0   robot-hat   vilib
+#
+# picamera2 and libcamera come from the OS (apt install python3-picamera2), not from pip.
+
+# --- core: the MCP server and its tools ---
+mcp[cli]>=1.0,<2
+psutil                 # CPU / battery statistics
+numpy
+Pillow                 # image handling (look / capture)
+pupil-apriltags        # AprilTag detection (localisation, face_tag, whereami)
+
+# --- sensors (QWIIC chain, optional: only what you have fitted) ---
+adafruit-blinka        # provides `board` / `busio`
+adafruit-circuitpython-bno055       # IMU (heading)
+adafruit-circuitpython-bme280       # temperature / humidity / pressure
+adafruit-circuitpython-veml7700     # light
+adafruit-circuitpython-vl53l1x      # downward ToF (cliff guard)
+adafruit-extended-bus
+
+# --- ear and voice (optional) ---
+pyusb                  # respeaker_reboot.py (ReSpeaker XVF3800 USB control; needs USB permissions)
+soundfile
+websockets             # robot_say_rt.py (ElevenLabs realtime TTS)
+
+# --- speaker identification (optional): installed by speaker_id/install.sh into its OWN venv (.spk-venv) ---
+#   setuptools<81 numpy scipy torch(cpu) librosa webrtcvad resemblyzer   (+ apt: python3-venv python3-dev build-essential libsndfile1 ffmpeg)
+
+# --- laptop-side helpers (on the LAPTOP, not the Pi) ---
+#   paramiko           # pi_ssh.py
+#   reportlab          # navigacio/gen_apriltags*.py, gen_checkerboard.py (printable PDFs)
+#   ultralytics opencv-python   # perception/ (YOLO object detection, runs on the laptop)

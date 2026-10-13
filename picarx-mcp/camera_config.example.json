@@ -1,0 +1,6 @@
+{
+  "_comment": "Copy to ~/picarx-mcp/camera_config.json ON THE ROBOT. Many navigation scripts read it with no fallback. Values for the Camera Module 3 Wide (IMX708). lens_position is a LOCKED focus (autofocus during navigation causes silent distance errors): measure yours once and keep it.",
+  "capture_width": 2304,
+  "capture_height": 1296,
+  "lens_position": 1.0
+}

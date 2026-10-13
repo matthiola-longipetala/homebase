@@ -1,0 +1,4 @@
+# ⚠️ Pin mcp below 2: this server uses the v1 API (`from mcp.server.fastmcp import FastMCP`).
+# In mcp 2.x FastMCP was renamed, and the server fails at import. If several MCP servers share
+# one Python, a single upgrade takes them all down — keep the pin.
+mcp>=1.0,<2

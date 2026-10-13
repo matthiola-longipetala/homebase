@@ -1,0 +1,12 @@
+{
+  "_comment": "Optional. Copy to <MEMORIA_ROOT>/memoria.config.json. Environment variables win over these values (MEMORIA_CONTEXT_FILE, MEMORIA_PATTERNS_FILE, MEMORIA_OWNER_NAME).",
+  "context_file": "kontextus/helyzet.md",
+  "patterns_file": "kontextus/mintazatok.md",
+  "owner_name": "the owner",
+
+  "_comment_extra": "Folders OUTSIDE the memory that get_open_markers should scan for TODO markers, and that get_unlogged_changes should watch for work that never made it into the journal (e.g. a robot's own docs). The server's own folder is always watched.",
+  "extra_marker_roots": [],
+  "extra_unlogged_roots": [
+    {"path": "{REPO}/<robot project>/docs", "label": "robot/docs", "recursive": true}
+  ]
+}

@@ -1,0 +1,10 @@
+# ⚠️ REQUIRED PIN mcp<2: this server uses the v1 API
+# (`from mcp.server.fastmcp import FastMCP`). In mcp 2.x FastMCP was
+# RENAMED to MCPServer -> an unpinned `mcp>=1.0.0` now installs 2.x and the server
+# dies at IMPORT time. If several MCP servers share one global Python install,
+# a single upgrade takes ALL of them down.
+mcp>=1.0,<2
+requests>=2.28.0
+cryptography
+# IANA time-zone names for config "timezone" (Windows has no system tz database)
+tzdata; sys_platform == "win32"

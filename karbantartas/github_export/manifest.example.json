@@ -1,0 +1,10 @@
+{
+  "leiras": "Example manifest (\"leírás\" = description). Your real one is built from your own inventory and stays on your machine. Personal files never go into it.",
+  "include": ["karbantartas/*.py", "memoria-mcp/*.py", "memoria-mcp/*.md", "memoria-mcp/*.json"],
+  "exclude": ["*.bak*", "*__pycache__*", "*_backup*", "config.json", "*.env", "data", "data_hajnal", "github_export"],
+  "csere": [
+    {"minta": "C:[/\\\\]+Users[/\\\\]+valaki", "uj": "{HOME}"},
+    {"minta": "/home/[a-z]+", "uj": "{PI_HOME}"}
+  ],
+  "binaris_engedely": [".png"]
+}

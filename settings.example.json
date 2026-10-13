@@ -1,0 +1,52 @@
+{
+  "_comment": [
+    "Merge the parts you want into ~/.claude/settings.json (user level). JSON has no comments, so these _comment keys are only notes; Claude Code ignores unknown keys, but you can delete them.",
+    "Replace {REPO} with the absolute path of this repository and {MEMORIA} with your memory folder, using forward slashes, also on Windows (D:/work/home-ai, not D:\\work\\home-ai).",
+    "HOOKS ARE OFF in this template: they sit under \"_hooks_disabled\". To switch one on, copy its event block (e.g. \"PreCompact\": [...]) into a real \"hooks\" object in your settings.json, with the owner's yes. Switch them on one by one.",
+    "The hook commands use `py -3.12` (the Windows Python launcher, INSTALL ch. 0); on Linux/macOS write python3.12. Hooks never block: each script always exits 0. If you can't see a hook's effect, check the path first. The two SessionStart hooks append a line to {MEMORIA}/naplo/*_nyom.log ('nyom' = trace) when they run; the PreCompact hook writes {MEMORIA}/naplo/tomoritesek.md and the handover file."
+  ],
+  "autoCompactEnabled": true,
+  "autoCompactWindow": 650000,
+  "_comment_autoCompactWindow": "The token count at which Claude Code compacts the context automatically. 650000 was our value for a model with a 1M-token context window; pick a value that fits YOUR model's context size (well below it). Set the context meter's meter_threshold in figyelok.json (chapter 3) a little below this value (about 65 % of the context window: 130000 for a 200k model, ~590000 for a 1M model).",
+  "_hooks_disabled": {
+    "_comment_PreCompact": "precompact_mentes.py: before every compaction, one line into {MEMORIA}/naplo/tomoritesek.md and a handover file {MEMORIA}/kontextus/atado_<session8>.md with the last turns (and the MOOD lines kept on top).",
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py -3.12 -X utf8 {REPO}/karbantartas/precompact_mentes.py"
+          }
+        ]
+      }
+    ],
+    "_comment_SessionStart": "compact: postcompact_emlekezteto.py tells the continuing instance where the handover is and which journal file is today's. startup|resume: sessionstart_figyelo_emlekezteto.py reports the machine/daemon state and lists the watchers to start again (from karbantartas/figyelok.json; copy figyelok.example.json first).",
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py -3.12 -X utf8 {REPO}/karbantartas/postcompact_emlekezteto.py"
+          }
+        ]
+      },
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py -3.12 -X utf8 {REPO}/karbantartas/sessionstart_figyelo_emlekezteto.py"
+          }
+        ]
+      }
+    ]
+  },
+  "_comment_env": "Every key inside \"env\" becomes a real environment variable for Claude Code and its tools. TELEGRAM_MCP_CONFIG is added here in chapter 6 of INSTALL.md, after the bot exists.",
+  "env": {
+    "MEMORIA_ROOT": "{MEMORIA}",
+    "CLAUDE_MEMORY_DIR": "{MEMORIA}",
+    "BASH_MAX_TIMEOUT_MS": "604800000"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "leiras": "Outgoing deny filter. If ANY pattern matches the outgoing text, the proposal is REJECTED. The patterns run on the HOMOGLYPH-NORMALIZED form (NFKC + Cyrillic/Greek→Latin). The log records only the NAME of the pattern, never the matched text. The owner may extend it; the list can only get stricter. IMPORTANT: this is a net against accidental slips, NOT a wall against deliberate leaking. Hungarian language data: iranyitoszam_varosok (EMPTY by default; add the towns of YOUR region here — the largest Hungarian cities are built into szures.py) and several regexes (Hungarian phone, street and licence-plate formats, Hungarian words) are Hungary-specific; for another country/language, replace or extend them. The base patterns are also built into szures.py, so this file can only add to them.",
+  "csalad_nevek": [],
+  "telepulesek": [],
+  "szo_szerinti": [],
+  "iranyitoszam_varosok": [],
+  "regexek": [
+    {
+      "nev": "email_cim",
+      "minta": "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    },
+    {
+      "nev": "email_szoval",
+      "minta": "(?i)(kukac|\\bat\\b|\\bkukacz?\\b)\\s+[\\w.-]+\\s+(pont|dot)\\s+[a-z]{2,4}\\b"
+    },
+    {
+      "nev": "telefonszam_hu",
+      "minta": "(\\+36|0036|\\b06)[\\s\\-/.]?\\(?\\d{1,2}\\)?[\\s\\-/.]?\\d{3}[\\s\\-/.]?\\d{3,4}"
+    },
+    {
+      "nev": "telefonszam_altalanos",
+      "minta": "\\b\\d{2,3}[\\s\\-/.]\\d{3}[\\s\\-/.]\\d{3,4}\\b"
+    },
+    {
+      "nev": "hosszu_szamsor",
+      "minta": "\\b\\d{9,}\\b"
+    },
+    {
+      "nev": "ip_cim",
+      "minta": "\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b"
+    },
+    {
+      "nev": "belso_halozat",
+      "minta": "192\\.168\\.|10\\.\\d{1,3}\\.|172\\.(1[6-9]|2\\d|3[01])\\."
+    },
+    {
+      "nev": "utca_hazszam",
+      "minta": "\\b[\\wÁÉÍÓÖŐÚÜŰáéíóöőúüű.-]+\\s+(utca|utcai|út|úti|u\\.|tér|téri|köz|sétány|körút|krt\\.?|sor|dűlő|lakótelep|ltp\\.?)\\s*\\d+"
+    },
+    {
+      "nev": "rendszam_regi",
+      "minta": "\\b[A-Z]{3}-\\d{3}\\b|\\b(rendsz[áa]m|frsz)\\b[\\s:]*[A-Z]{3}[\\s-]?\\d{3}\\b"
+    },
+    {
+      "nev": "rendszam_uj",
+      "minta": "\\b[A-Z]{2}[\\s-]?[A-Z]{2}[\\s-]?\\d{3}\\b"
+    },
+    {
+      "nev": "kulcs_szeru_karaktersor",
+      "minta": "\\b(?=[A-Za-z0-9_+/=-]*\\d)(?=[A-Za-z0-9_+/=-]*[A-Za-z])[A-Za-z0-9_+/=-]{16,}\\b"
+    },
+    {
+      "nev": "app_jelszo_alak",
+      "minta": "(?i)\\b[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}\\b"
+    },
+    {
+      "nev": "jwt_alak",
+      "minta": "\\beyJ[A-Za-z0-9_-]{4,}\\.[A-Za-z0-9_-]{4,}\\.[A-Za-z0-9_-]{4,}"
+    },
+    {
+      "nev": "telegram_token_alak",
+      "minta": "\\b\\d{6,12}:[A-Za-z0-9_-]{25,}\\b"
+    },
+    {
+      "nev": "windows_utvonal",
+      "minta": "[A-Za-z]:\\\\|[A-Za-z]:/"
+    },
+    {
+      "nev": "unix_utvonal_home",
+      "minta": "/home/[A-Za-z0-9._-]+|/Users/[A-Za-z0-9._-]+"
+    },
+    {
+      "nev": "forraskod_jel",
+      "minta": "(?i)\"\"\"|'''|\\bimport\\s+[A-Za-z_]|\\bdef\\s+[A-Za-z_]\\w*\\s*\\(|\\b[\\w/\\\\.-]+\\.(py|json|env|db|jsonl|log|ini|cfg|sql|sh|bat|ps1|yaml|yml)\\b|#!/"
+    },
+    {
+      "nev": "gps_koordinata",
+      "minta": "\\b[-+]?\\d{1,2}\\.\\d{4,}\\s*,\\s*[-+]?\\d{1,3}\\.\\d{4,}\\b"
+    },
+    {
+      "nev": "hitelesito_szo",
+      "minta": "(?i)\\b(jelsz[oó]|password|app[\\s_-]*password|api[\\s_-]*key|access[\\s_-]*token|bot[\\s_-]*token|titkos\\s+kulcs)\\b"
+    },
+    {
+      "nev": "bankkartya_szeru",
+      "minta": "\\b(?:\\d[ -]?){13,19}\\b"
+    },
+    {
+      "nev": "tajszam_adoszam_szeru",
+      "minta": "\\b\\d{3}[\\s-]?\\d{3}[\\s-]?\\d{3,4}\\b"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "timezone": "UTC",
+  "tts": {
+    "voice_id": "YOUR_VOICE_ID_HERE",
+    "model_id": "eleven_v3",
+    "language_code": "en"
+  },
+  "stt": {
+    "model_id": "scribe_v2_realtime",
+    "language_code": "en",
+    "vad_silence_threshold": 1.5
+  },
+  "server": {
+    "host": "127.0.0.1",
+    "port": 8765
+  },
+  "call": {
+    "max_duration_seconds": 900
+  },
+  "voicemail": {
+    "default_language": "en",
+    "local_prefixes": [],
+    "greeting": {
+      "en": "Hello! You've reached the voicemail. Please leave your message after the tone. When you're done, press 1 on your phone. Thank you!",
+      "hu": "Üdvözlöm! Kérem, hagyja üzenetét a hangjelzés után. Amikor befejezte, nyomja meg az egyes gombot a telefonján. Köszönöm!"
+    },
+    "thanks": {
+      "en": "Thank you for your message. Goodbye!",
+      "hu": "Köszönöm az üzenetet. Viszontlátásra!"
+    }
+  }
+}

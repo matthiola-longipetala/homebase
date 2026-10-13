@@ -1,0 +1,11 @@
+{
+  "bot_token": "<BOT_TOKEN_FROM_BOTFATHER>",
+  "recipients": {
+    "owner":   { "chat_id": 0, "user_id": 0 },
+    "partner": { "chat_id": 0, "user_id": 0 }
+  },
+  "default_recipient": "owner",
+  "allowed_user_ids": [],
+  "_comment_timezone": "Shown times use this zone: an IANA name (Europe/Berlin, America/New_York) or a fixed offset like +02:00. Missing = the system's local time zone.",
+  "timezone": "Europe/Berlin"
+}

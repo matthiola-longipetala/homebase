@@ -1,0 +1,4 @@
+{
+  "_comment": "Copy to ~/picarx-mcp/routes.json. The route index of utvonalak/route_runner.py: a key like \"hall_dock->kitchen\" pointing to a recorded route file under utvonalak/routes/. Starts empty: routes describe YOUR home, so they are never shipped.",
+  "routes": {}
+}

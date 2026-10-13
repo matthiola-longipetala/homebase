@@ -1,0 +1,24 @@
+# /etc/systemd/system/picarx-mcp.service
+# Activation:
+#   sudo cp picarx-mcp.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable picarx-mcp.service
+#   sudo systemctl start picarx-mcp.service
+#   sudo systemctl status picarx-mcp.service
+# TEMPLATE: replace {PI_HOME} with the robot user's home directory (e.g. /home/<user>)
+# before copying this file to /etc/systemd/system/ (systemd does not expand ~ here).
+[Unit]
+Description=PiCar-X Robot MCP Server
+After=network-online.target sound.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory={PI_HOME}/picarx-mcp
+ExecStart=/usr/bin/python3 {PI_HOME}/picarx-mcp/server.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

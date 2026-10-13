@@ -1,0 +1,51 @@
+# Secrets and personal config — these belong in a secrets folder outside the repo
+config.json
+*.env
+.env
+voice_config.json
+szerepek.json
+figyelok.json
+tiltolista.json
+
+# Runtime data: message buffers, state, logs
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+data_*/
+*.offset.*
+*_last_seen.txt
+*.lock
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*venv*/
+
+# Your own memory lives in your memory folder, not in this repository
+memoria/
+
+# Your own working rules (made from CLAUDE.example.md)
+CLAUDE.md
+CLAUDE.local.md
+
+# Voiceprints are biometric data: never in the repository
+profiles.json
+**/speaker_id/profiles*.json
+.spk-venv/
+
+# Your own STT garble dictionary (made from picarx-mcp/garble_hints.example.json)
+garble_hints.json
+
+# Bluesky reader runtime files and your own allowlist / key (the key belongs OUTSIDE the repo: BSKY_KEY_FILE)
+bluesky/inbox.jsonl
+bluesky/naplo.jsonl
+bluesky/varolista.jsonl
+bluesky/szivesen_latnak.json
+bluesky/piszkozatok/
+bluesky/bsky_kulcs.env
+*.jsonl

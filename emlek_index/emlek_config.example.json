@@ -1,0 +1,25 @@
+{
+  "_comment": "Copy to emlek_config.json (git-ignored is not needed: it holds no secrets, but it does hold your role names). Every key is optional.",
+  "memory_dir": "{MEMORIA}",
+  "automemory_dir": "~/.claude/projects/<project slug>/memory",
+  "index_dir": "<a local, NOT cloud-synced folder>/emlek_index_data",
+  "sources": [
+    {"layer": "naplo", "folder": "naplo"},
+    {"layer": "kontextus", "folder": "kontextus"},
+    {"layer": "projektek", "folder": "projektek"}
+  ],
+  "archive_folder": "archiv/raw/naplo",
+  "exclude_patterns": ["^draft_"],
+
+  "_comment_authors": "Who lived it: with two Claudes, each recalled line says whose memory it is. First matching rule wins.",
+  "session_authors": {"0a1b2c3d": "Night Claude", "4e5f6a7b": "Day Claude"},
+  "journal_rules": [
+    {"pattern": "_night|_morning", "author": "Night Claude", "since": "2026-01-01"}
+  ],
+  "journal_default": "Day Claude",
+  "frontmatter_rules": [
+    {"contains": ["night claude"], "author": "Night Claude"},
+    {"contains": ["day claude"], "author": "Day Claude"}
+  ],
+  "default_author": "shared"
+}

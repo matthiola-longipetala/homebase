@@ -1,0 +1,27 @@
+{
+  "_comment": "Copy to ~/picarx-mcp/voice_config.json ON THE ROBOT (not on the laptop, not in the repo): it holds your ElevenLabs key. Read by robot_say*.py, robot_hear.py, robot_listen_loop.py, doa.py and friends.",
+  "elevenlabs_api_key": "PLACEHOLDER",
+
+  "tts": {
+    "voice_id": "PLACEHOLDER — your Claude's ElevenLabs voice id",
+    "model_id": "eleven_multilingual_v2",
+    "language_code": "en",
+    "realtime": false
+  },
+
+  "stt": {
+    "model_id": "scribe_v2",
+    "language_code": "en"
+  },
+
+  "_comment_language": "Speech language: set tts.language_code and stt.language_code (e.g. \"hu\"), and ROBOT_ESPEAK_VOICE for the offline espeak fallback voice (default \"en\").",
+
+  "vad": {
+    "volume_threshold": 500
+  },
+
+  "doa": {
+    "offset_deg": 0.0,
+    "sign": 1
+  }
+}

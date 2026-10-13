@@ -1,0 +1,33 @@
+[
+  {"pattern": "\\bmeg\\s?ott?o\\b", "hint": "megadta?", "type": "regex", "note": "invented example: 'megadta' (called) heard as 'megotto' / 'meg Otto'"},
+  {"pattern": "\\bugatta\\b", "hint": "megadta?", "type": "regex"},
+  {"pattern": "\\bmaga adta\\b", "hint": "megadta?", "type": "regex"},
+  {"pattern": "\\bmadom meg\\b", "hint": "megadom?", "type": "regex"},
+  {"pattern": "\\belnyomogattam\\b", "hint": "megadtam?", "type": "regex"},
+
+  {"pattern": "ekolok", "hint": "csekkolok (check)?", "type": "fuzzy", "note": "fuzzy: catches near-misses like Ekkolok and Lekollok"},
+  {"pattern": "^(ekkor|meckek|megkelt|csakolt)\\b", "hint": "csekk (check)?", "type": "regex"},
+
+  {"pattern": "\\b(born|torn|torjon)\\b", "hint": "turn?", "type": "regex"},
+  {"pattern": "\\b(rivér|béver)\\b", "hint": "river?", "type": "regex"},
+  {"pattern": "\\buszonyot", "hint": "huszonöt (25)?", "type": "regex"},
+
+  {"pattern": "\\btrüff\\b", "hint": "treff (clubs)?", "type": "regex"},
+  {"pattern": "\\bf7-es\\b", "hint": "treff hetes?", "type": "regex"},
+  {"pattern": "\\berref\\b", "hint": "treff négy?", "type": "regex"},
+  {"pattern": "\\bharó\\b", "hint": "káró (diamonds)?", "type": "regex"},
+  {"pattern": "\\bmiknegy\\b", "hint": "pikk négy?", "type": "regex"},
+  {"pattern": "\\bpick\\b", "hint": "pikk (spades)?", "type": "regex"},
+
+  {"pattern": "\\beccolo\\b", "hint": "csekkolok (check)?", "type": "regex", "note": "Italian-sounding hallucination"},
+
+  {"pattern": "\\bkopp előállt\\b", "hint": "kint van a flop?", "type": "regex"},
+  {"pattern": "jelenflopp", "hint": "kint van a flop?", "type": "regex"},
+  {"pattern": "\\bkimbola\\b", "hint": "kint van a flop?", "type": "regex"},
+  {"pattern": "^én (van|vagyok|volnék) a flop", "hint": "kint van a flop?", "type": "regex"},
+
+  {"pattern": "\\bahol en\\b", "hint": "all-in?", "type": "regex"},
+  {"pattern": "\\ballast\\b", "hint": "száz (hundred)?", "type": "regex"},
+  {"pattern": "^jó reggelt\\b", "hint": "STT noise at line start?", "type": "regex"},
+  {"pattern": "imádom a húsokat", "hint": "húszat hívok (I call twenty)?", "type": "regex", "guard": "hiv_context"}
+]

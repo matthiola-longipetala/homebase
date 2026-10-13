@@ -1,0 +1,2 @@
+# karbantartas/ helpers. The watchers and hooks use only the standard library.
+paramiko   # pi_ssh.py (SSH/SFTP to the robot without ssh.exe)

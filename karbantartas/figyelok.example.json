@@ -1,0 +1,15 @@
+{
+  "_comment": "Copy to figyelok.json. `py -3.12` is the Windows Python launcher (INSTALL ch. 0); on Linux/macOS write python3.12. Role name -> the watchers the SessionStart hook reminds that Claude to start. {session} = full session id, {date} = today. {karbantartas} = the absolute path of the karbantartas folder (filled in by the hook). {meter_threshold} = the context meter's threshold: set \"meter_threshold\" below to ~65 % of YOUR model's context window (130000 for 200k tokens, 590000 for 1M); without it the hook uses the env var CONTEXT_METER_THRESHOLD, else 130000.",
+  "meter_threshold": 130000,
+  "default": [
+    "Telegram wake-up: `PYTHONUTF8=1 py -3.12 -u {karbantartas}/egyszer.py --minta \"^(TELEGRAM|monitor-error)\" -- py -3.12 -u {karbantartas}/monitor_wake_v3_db.py`",
+    "context meter: `PYTHONUTF8=1 py -3.12 -u {karbantartas}/egyszer.py --minta \"CONTEXT|compaction\" -- py -3.12 -u {karbantartas}/kontextus_mero.py --session {session} --watch {meter_threshold} 120`",
+    "mailbox (only with two Claudes): `PYTHONUTF8=1 py -3.12 -u {karbantartas}/posta_figyelo.py --nekem day`"
+  ],
+  "night": [
+    "Telegram wake-up on MY bot: `TELEGRAM_MCP_CONFIG=<secrets>/telegram-night/config.json PYTHONUTF8=1 py -3.12 -u {karbantartas}/egyszer.py --minta \"^(TELEGRAM|monitor-error)\" -- py -3.12 -u {karbantartas}/monitor_wake_v3_db.py`",
+    "context meter: `PYTHONUTF8=1 py -3.12 -u {karbantartas}/egyszer.py --minta \"CONTEXT|compaction\" -- py -3.12 -u {karbantartas}/kontextus_mero.py --session {session} --watch {meter_threshold} 120`",
+    "mailbox: `PYTHONUTF8=1 py -3.12 -u {karbantartas}/posta_figyelo.py --nekem night`",
+    "the day Claude's lines in the family group: `PYTHONUTF8=1 py -3.12 -u {karbantartas}/egyszer.py --minta \"^(TELEGRAM|monitor-error)\" -- py -3.12 -u {karbantartas}/csoport_tars_figyelo.py --peer-db <day bot data>/messages.db --peer-user-id <day bot user_id> --group-chat-id <group chat_id> --state <night bot data>/group_peer_last_seen.txt --label \"Day Claude\"`"
+  ]
+}

@@ -1,0 +1,15 @@
+# mcp<2 is required: this server uses the v1 API (`from mcp.server.fastmcp import FastMCP`).
+# In mcp 2.x FastMCP was renamed, so an unpinned install fails at import.
+mcp>=1.0,<2
+elevenlabs>=1.0.0
+sounddevice>=0.4.6
+numpy>=1.24.0
+pystray>=0.19.5
+Pillow>=10.0.0
+pynput>=1.7.6
+pyperclip>=1.8.2
+pyautogui>=0.9.54
+pygame-ce>=2.5.0
+# webrtcvad-wheels has prebuilt Windows wheels up to Python 3.13. On newer
+# versions it is skipped and the companion uses a volume-based fallback.
+webrtcvad-wheels>=2.0.11; python_version < "3.14"

@@ -1,0 +1,23 @@
+log:
+  level: info
+
+# --- Network endpoints (LAN ONLY, no internet / port forwarding) ---
+api:
+  listen: ":1984"
+
+rtsp:
+  listen: ":8554"          # RTSP (the ring-buffer + latest.jpg ffmpeg consumers read from here)
+
+webrtc:
+  listen: ":8555"          # WebRTC (for low latency from the browser)
+  candidates:
+    - ${PI_LAN_IP}:8555   # the robot's LAN IP (env var), so the browser finds it directly
+
+# --- Camera source: cam_source.sh -> rpicam-vid HW H.264, raw Annex-B on stdout ---
+# go2rtc is "on demand": rpicam starts ONLY when there is a consumer and stops by
+# itself after the last consumer leaves. stream_supervisor keeps the ring-buffer
+# consumer running in active mode -> the camera is live then; in passive/OFF mode
+# everything is released. The wrapper script enables rolling exposure
+# (/tmp/stream_expo.env).
+streams:
+  robot: exec:${HOME}/picarx-mcp/stream/cam_source.sh#video=h264   # go2rtc expands ${ENV} vars

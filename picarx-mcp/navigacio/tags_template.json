@@ -1,0 +1,18 @@
+{
+  "_comment": "Tag -> world-coordinate map for localisation, filled with the INVENTED example flat (not a real home): a 900 x 600 cm rectangle, x -400..500, y -100..500. Hallway x -50..50 along +Y (front door at its south end, y=-100); west of it the kitchen (y -100..150) and the living room (y 150..500, balcony door in its north wall); east of it the bathroom (y -100..150, FORBIDDEN: step-down threshold) and the bedroom (y 150..500). Origin (0,0) = the dock spot in the hallway, 100 cm in from the front door. +X = east/right, +Y = north/along the hallway, unit cm. yaw = facing direction of the tag's face in degrees, CCW from the +X axis. Replace every value with your own measurements; save the result on the robot as tags_coords.json.",
+  "frame": {"origin": "dock spot in the hallway (example flat)", "x": "right/east", "y": "along the hallway/north", "unit": "cm", "yaw": "CCW from +X, degrees"},
+  "tag_family": "tag36h11",
+  "tag_size_m": 0.12,
+  "tags": {
+    "0": {"name": "hall dock (HOME)",          "x": 50,   "y": 0,    "z": 14, "yaw": 180},
+    "1": {"name": "front door",                "x": 0,    "y": -100, "z": 14, "yaw": 90},
+    "2": {"name": "hallway north end",         "x": 0,    "y": 500,  "z": 14, "yaw": 270},
+    "3": {"name": "living room door (hallway side)", "x": -50, "y": 220, "z": 14, "yaw": 0},
+    "4": {"name": "kitchen",                   "x": -400, "y": 25,   "z": 14, "yaw": 0},
+    "5": {"name": "bathroom (FORBIDDEN)",      "x": 275,  "y": -100, "z": 14, "yaw": 90, "forbidden": true},
+    "6": {"name": "bedroom door (BOUNDARY)",   "x": 50,   "y": 260,  "z": 14, "yaw": 180, "boundary": true},
+    "7": {"name": "bedroom",                   "x": 500,  "y": 325,  "z": 14, "yaw": 180},
+    "8": {"name": "balcony door",              "x": -225, "y": 500,  "z": 14, "yaw": 270},
+    "9": {"name": "living room exit (room side)", "x": -50, "y": 350, "z": 14, "yaw": 180}
+  }
+}

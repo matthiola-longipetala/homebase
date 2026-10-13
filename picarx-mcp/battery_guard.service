@@ -1,0 +1,16 @@
+# TEMPLATE: replace {PI_HOME} with the robot user's home directory (e.g. /home/<user>)
+# before copying this file to /etc/systemd/system/ (systemd does not expand ~ here).
+[Unit]
+Description=PiCar-X battery guard (graceful shutdown before the battery runs flat)
+After=multi-user.target
+
+[Service]
+Type=simple
+# runs as root -> poweroff works without a password
+User=root
+ExecStart=/usr/bin/python3 {PI_HOME}/picarx-mcp/battery_guard.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

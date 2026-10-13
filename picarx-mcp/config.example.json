@@ -1,0 +1,26 @@
+{
+  "_comment_host": "The MCP server has NO authentication. Use the Pi's LAN IP (not 0.0.0.0), and allow the port only from the laptop with a firewall rule (ufw allow from <laptop-ip> to any port 8765). Default if missing: 127.0.0.1 (this Pi only).",
+  "host": "<the Pi's LAN IP>",
+  "port": 8765,
+  "elevenlabs_api_key": "PLACEHOLDER",
+  "elevenlabs_voice_id": "PLACEHOLDER",
+  "movement_calibration": {
+    "forward_cm_per_sec_at_30": 22.0,
+    "turn_sec_per_90deg": 1.5,
+    "steering_center_offset": 0
+  },
+  "safety": {
+    "obstacle_stop_cm": 20,
+    "distance_samples": 5
+  },
+  "camera": {
+    "width": 1024,
+    "height": 576
+  },
+  "active_timeout_s": 60,
+  "_comment_connection": "Laptop-side helpers (laptop_config.py) and the stream viewer URL read these; env vars PI_HOST / PI_USER / PI_KEY / PI_PROJECT_DIR / PI_LAN_IP override them.",
+  "pi_host": "<robot-ip-or-hostname>",
+  "pi_user": "pi",
+  "ssh_key": "{HOME}/.ssh/<key>",
+  "pi_project_dir": "picarx-mcp"
+}

@@ -1,0 +1,6 @@
+{
+  "_comment": "Copy to your secrets folder (outside the repo) and point VIDEO_MCP_CONFIG at it. If gemini_api_key is empty, the key is borrowed from the image-mcp config; env fallback GEMINI_API_KEY.",
+  "gemini_api_key": "PLACEHOLDER",
+  "model": "gemini-2.5-flash",
+  "default_out_dir": "<folder for downloaded clips>"
+}
