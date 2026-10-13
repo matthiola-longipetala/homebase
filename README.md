@@ -239,6 +239,32 @@ skills/                    — the resident Claude's skill files (navigation + c
 experiments/               — small experiments done for their own sake (listening to a song with three ears); not part of the installation
 ```
 
+### Folder names: a glossary
+
+The code, the comments and the documentation are in English, but the folder and file names stayed Hungarian: the scripts, the hooks and the running household system all refer to these paths, and renaming them would have meant re-testing every path in the package. Here is what the names mean.
+
+| name | meaning | what is inside |
+|---|---|---|
+| `karbantartas` | maintenance | hooks, watchers, the context meter, the self-restarter |
+| `emlek_index` | memory index | associative recall over the memory files (local embedding model) |
+| `memoria` / `memoria-mcp` / `memoria-template` | memory | the memory server and the empty memory skeleton |
+| `kontextus` | context | the shared state files the Claude reads at start (`helyzet.md` = situation, `mintazatok.md` = patterns, `atado_*.md` = hand-over notes, `kollegak_posta.md` = mailbox between Claudes) |
+| `naplo` | journal | one file per day |
+| `projektek` | projects | research notes and plans |
+| `eszkozok` | tools | notes on how a tool works |
+| `archiv` | archive | closed threads |
+| `tavoli` | remote | Moonlight game-streaming input (keystrokes and mouse moves to the window in front) |
+| `bluesky/or` | guard | the Bluesky guard: every outgoing post approved by a human; `tesztek` = tests |
+| `robot_mikrofon_tarto` | robot microphone mount | STL file |
+| `robot_panel` | robot panel | the robot status page |
+| `picarx-mcp/tanulsagok` | lessons | what the robot learned (driving, sensing) |
+| `picarx-mcp/utvonalak` | routes | taught routes and the route runner |
+| `picarx-mcp/navigacio` | navigation | navigation notes |
+| `picarx-mcp/technika` | technique | hardware and operations reference |
+| `picarx-mcp/terkep` | map | room cards and the tag map (not shipped: household data) |
+
+Script names follow the same pattern; a few that appear in INSTALL: `egyszer.py` = "once" (runs a command until its first matching output line), `posta_figyelo.py` = mailbox watcher, `kontextus_mero.py` = context meter, `onujraindito.ps1` = self-restarter, `precompact_mentes.py` = pre-compaction save, `figyelok.json` = the list of watchers.
+
 ---
 
 ## 5. License
